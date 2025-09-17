@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world-job-with-ttl
+spec:
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 30 # This will terminate the job after 30 sec of completion
+  template:
+    metadata:
+      name: hello-world-job-with-ttl
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: hello-world-container
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args: ["echo 'Hello world'"]
