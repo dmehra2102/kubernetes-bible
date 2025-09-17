@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-fourth-configmap
+  namespace: default
+  creationTimestamp: "2024-08-10T06:20:49Z"
+data:
+  color: "blue"
+  environment: "prod"
+  version: "1"
