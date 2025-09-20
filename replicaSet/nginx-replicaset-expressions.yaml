@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: nginx-replicaset-expressions
+  namespace: rs-ns
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: nginx
+    matchExpressions:
+      - key: environment
+        operator: In
+        values:
+          - test
+          - dev
+  template:
+    metadata:
+      labels:
+        app: nginx
+        environment: test
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+          ports:
+            - containerPort: 80
