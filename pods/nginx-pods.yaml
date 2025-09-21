@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
     - name: nginx-container
-      image: nginx:latest
+      image: docker.io/library/nginx:latest
       imagePullPolicy: IfNotPresent
